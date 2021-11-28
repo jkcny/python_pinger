@@ -59,8 +59,8 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         if id != ID:
             return "ICMP echo reply ID does not match"
 
-        response_time = struct.unpack('d', recPacket[28:])[0]
-        delay_ms = (timeReceived - response_time)*1000
+        init_time = struct.unpack('d', recPacket[28:])[0]
+        delay_ms = (timeReceived - init_time)*1000
         return delay_ms
 
         # Fill in end
